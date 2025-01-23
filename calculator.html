@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            margin-top: 13%;
+        }
+        .main{
+            height: 30rem;
+            width: 25rem;
+            border: 2px solid rgb(131, 129, 129);
+            background-color: rgb(40, 40, 77);
+            border-radius: 2%;
+            font-size: 1.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+            
+        }
+        .up input{
+            width: 19.5rem;
+            height: 3rem ;
+            margin-top: 2rem;
+            margin-left: 2.5rem;
+            color: rgb(112, 112, 238);
+            font-size: 2.5rem;
+            text-align: right;
+            
+        }
+        .down{
+            width: 25rem;
+            margin-top: 2rem;
+            
+            
+        }
+        .l1, .l2, .l3, .l4, .l5{
+            display: flex;
+            height: 4rem;
+            width: 21rem;
+            margin-bottom: 5px;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+
+        }
+        .btn{
+            box-shadow: 2px 2px 5px grey;
+            width: 4rem;
+            height: 2rem;
+            margin-left: 8px;
+            text-align: center;
+            padding-top: 8px;
+            border-radius: 20%;
+            background-color: rgb(112, 112, 238);
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+             user-select: none; /* Standard syntax */
+            
+        }
+        .clr{
+            box-shadow: 2px 2px 5px grey;
+            width: 13.5rem;
+            height: 2rem;
+            margin-left: 8px;
+            text-align: center;
+            padding-top: 8px;
+            border-radius: 10%;
+            background-color: rgb(112, 112, 238);
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+             user-select: none; /* Standard syntax */
+        }
+        .equal{
+            box-shadow: 2px 2px 5px grey;
+            width: 9rem;
+            height: 2rem;
+            margin-left: 8px;
+            text-align: center;
+            padding-top: 8px;
+            border-radius: 10%;
+            background-color: rgb(112, 112, 238);
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+             user-select: none; /* Standard syntax */
+        }
+        .btn:active{
+            background-color:rgb(80, 80, 193);
+        }
+        .clr:active{
+            background-color: rgb(80, 80, 193);
+        }
+        .equal:active{
+            background-color: rgb(80, 80, 193);
+        }
+        .footer{
+            font-size: 0.5rem;
+            text-align: right;
+            padding: 1rem;
+            color: rgb(112, 112, 238);
+            text-shadow: 2px 2px 5px grey;
+        }
+     
+    </style>
+</head>
+<body onload="load()">
+    <div class="main">
+        <div class="up">
+            <input type="text" name="" id="inputID">
+        </div>
+        <div class="down">
+            <div class="l1">
+                <div class="clr" onclick="clr()">CLEAR</div>
+                <div class="divide btn">/</div>
+            </div>
+            <div class="l2">
+                <div class="seven btn" role="button">7</div>
+                <div class="eight btn" >8</div>
+                <div class="nine btn">9</div>
+                <div class="mul btn">*</div>
+            </div>
+            <div class="l3">
+                <div class="four btn">4</div>
+                <div class="five btn">5</div>
+                <div class="six btn">6</div>
+                <div class="minus btn">-</div>
+            </div>
+            <div class="l4">
+                <div class="one btn">1</div>
+                <div class="two btn">2</div>
+                <div class="three btn">3</div>
+                <div class="plus btn">+</div>
+            </div>
+            <div class="l5">
+                <div class="zero btn">0</div>
+                <div class="dot btn">.</div>
+                <div class="equal" onclick="equalto()">=</div>
+            </div>
+        </div>
+        <p class="footer">@ powered by Avtar Singh</p>
+    </div>
+    <script>
+        var btns = document.querySelectorAll(".btn");
+        var input=document.getElementById("inputID");
+        var btnValue;
+        function load() {
+        
+        for (var i = 0; i < btns.length; i++) {
+
+            btns[i].addEventListener("click", function() {
+            btnValue = this.innerText;
+            console.log(btnValue)
+            document.getElementById("inputID").value += btnValue;
+            })
+        }
+        }
+        function clr(){
+            input.value="";
+        }
+        function equalto(){
+            input.value=eval(input.value);
+        }
+
+   
+    </script>
+</body>
+</html>
